@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <head><meta charset="utf-8"><title>Блог</title></head>
+  <body>
+    <h1>Пости</h1>
+    {% for p in posts %}
+      <article>
+        <h2>{{ p.title }}</h2>
+        <p>{{ p.text }}</p>
+        <small>{{ p.published_date|default:p.created_date }}</small>
+      </article>
+    {% empty %}
+      <p>ще порожньо</p>
+    {% endfor %}
+  </body>
+</html>
