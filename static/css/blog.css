@@ -1,0 +1,109 @@
+/* --- базові налаштування --- */
+:root{
+  --bg:#0f1220;          /* темний фон */
+  --card:#171a2b;        /* картка */
+  --text:#e7eaf6;        /* основний текст */
+  --muted:#a3acc2;       /* приглушений текст */
+  --brand:#6aa9ff;       /* акцентні лінки/кнопки */
+  --brand-strong:#4e8ff0;
+  --border:#262b42;
+  --radius:14px;
+  --shadow:0 8px 24px rgba(0,0,0,.35);
+}
+
+/* скидання “синього підкресленого аду” і типографіка */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font:16px/1.65 "Inter","Segoe UI",Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* контейнер сторінки */
+.page{
+  max-width: 900px;
+  margin: 48px auto;
+  padding: 0 20px;
+}
+
+/* шапка */
+.site-header{
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom: 28px;
+}
+.site-title{
+  font-size: clamp(24px, 3.5vw, 34px);
+  font-weight: 800;
+  letter-spacing:.3px;
+  margin:0;
+}
+.site-title a{ color:var(--text); text-decoration:none; }
+.site-title a:hover{ opacity:.85 }
+
+/* картка поста */
+.post{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:22px 22px 18px;
+  margin: 14px 0 20px;
+  box-shadow: var(--shadow);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.post:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 34px rgba(0,0,0,.45);
+  border-color:#30406b;
+}
+
+.post h2{
+  margin:0 0 6px;
+  font-size: clamp(20px, 2.6vw, 26px);
+  line-height:1.25;
+}
+.post h2 a{
+  color:var(--text);
+  text-decoration:none;
+}
+.post h2 a:hover{ color:#fff }
+
+.post .meta{
+  color:var(--muted);
+  font-size: .92rem;
+  margin-bottom: 10px;
+}
+
+.post p{
+  margin: 0;
+  color: #dfe5ff;
+}
+
+/* посилання загалом */
+a{ color:var(--brand); text-decoration:none; }
+a:hover{ color:var(--brand-strong); text-decoration:underline; }
+
+/* кнопка-посилання */
+.btn{
+  display:inline-block;
+  padding:.5rem .9rem;
+  border-radius:10px;
+  background:var(--brand);
+  color:#081020;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow: 0 6px 16px rgba(106,169,255,.35);
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+}
+.btn:hover{
+  background:var(--brand-strong);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(106,169,255,.45);
+}
+
+/* адаптив */
+@media (max-width:600px){
+  .page{ margin: 28px auto; }
+  .post{ padding:18px; }
+}

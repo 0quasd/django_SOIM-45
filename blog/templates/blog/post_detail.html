@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+{% block content %}
+  <article class="post">
+    <h1>{{ post.title }}</h1>
+    <p class="meta">{{ post.published_date|default:post.created_date|date:"M d, Y, H:i" }}</p>
+    <p>{{ post.text|linebreaksbr }}</p>
+
+    {% if user.is_authenticated %}
+      <div class="actions">
+        <a class="btn" href="{% url 'post_edit' post.pk %}">✎ Редагувати</a>
+      </div>
+    {% endif %}
+
+    <a class="btn btn-secondary" href="{% url 'post_list' %}">← назад</a>
+  </article>
+{% endblock %}
