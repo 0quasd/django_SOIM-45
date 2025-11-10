@@ -1,15 +1,14 @@
-{% extends "blog/base.html" %}
-{% block title %}Пости{% endblock %}
-{% block content %}
-  {% for post in posts %}
-    <article class="post">
-      <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
-      <div class="meta">
-        {{ post.published_date|default:post.created_date|date:"d.m.Y, H:i" }}
-      </div>
-      <p>{{ post.text|truncatechars:220 }}</p>
-    </article>
-  {% empty %}
-    <p>Ще немає постів. <a class="btn" href="/admin/blog/post/add/">Додати</a></p>
-  {% endfor %}
-{% endblock %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% for post in posts %}
+  <article class="post">
+    <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+    <div class="meta">
+      {{ post.published_date|default:post.created_date|date:"d.m.Y, H:i" }}
+    </div>
+    <p>{{ post.text|truncatechars:220 }}</p>
+    <a href="{% url 'post_detail' post.pk %}">Коментарі: {{ post.approved_count }}</a>
+  </article>
+{% empty %}
+  <p>ще немає постів. <a class="btn" href="/admin/blog/post/add/">додати</a></p>
+{% endfor %}

@@ -102,8 +102,11 @@ a:hover{ color:var(--brand-strong); text-decoration:underline; }
   box-shadow: 0 10px 22px rgba(106,169,255,.45);
 }
 
-/* адаптив */
+
 @media (max-width:600px){
   .page{ margin: 28px auto; }
   .post{ padding:18px; }
+}
+.comment {
+    margin: 20px 0px 20px 20px;
 }
