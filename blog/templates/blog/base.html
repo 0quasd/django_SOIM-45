@@ -7,10 +7,10 @@
   <link rel="stylesheet" href="{% static 'css/blog.css' %}">
   <nav class="actions">
     {% if user.is_authenticated %}
+      <span class="top-menu">Привіт, {{ user.username }}! <small>(<a href="{% url 'logout' %}">Вийти</a>)</small></span>
       <a class="btn" href="{% url 'post_new' %}">+ новий</a>
-      <a class="link" href="/admin/logout/">Вийти</a>
     {% else %}
-      <a class="link" href="/admin/login/?next=/">Увійти</a>
+      <a class="link" href="{% url 'login' %}">Увійти</a>
     {% endif %}
   </nav>
 </head>

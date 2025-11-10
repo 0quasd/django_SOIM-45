@@ -4,6 +4,7 @@ from .models import Post, Comment
 from .forms import PostForm, CommentForm
 from django.db.models import Count, Q
 
+
 def post_list(request):
     posts = (Post.objects
              .annotate(approved_count=Count('comments', filter=Q(comments__approved_comment=True)))
@@ -40,7 +41,7 @@ def comment_remove(request, pk):
     comment.delete()
     return redirect('post_detail', pk=post_pk)
 
-@login_required
+@login_required  # <-- ДОДАЙТЕ ЦЕЙ РЯДОК
 def post_new(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
@@ -52,7 +53,7 @@ def post_new(request):
     return render(request, 'blog/post_edit.html', {'form': form})
 
 
-@login_required
+@login_required  
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":

@@ -110,3 +110,20 @@ a:hover{ color:var(--brand-strong); text-decoration:underline; }
 .comment {
     margin: 20px 0px 20px 20px;
 }
+
+
+.top-menu {
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+.top-menu small a,
+.top-menu small a:hover,
+.top-menu small a:visited {
+  color: var(--brand);
+  text-decoration: none;
+}
+
+.top-menu small a:hover {
+  text-decoration: underline;
+}
